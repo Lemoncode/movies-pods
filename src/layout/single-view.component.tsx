@@ -11,4 +11,4 @@ const SingleViewInner: React.StatelessComponent<SingleViewProps> = (props) => (
   </div>
 );
 
-export const SingleView = withStyles(styles)<SingleViewProps>(SingleViewInner);
+export const SingleView = withStyles(styles)(SingleViewInner);
