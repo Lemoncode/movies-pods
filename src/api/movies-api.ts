@@ -20,7 +20,7 @@ const getAllMovies = (): Promise<MovieEntity[]> => {
 
 
 const getAllMoviesByGenre = (genre : string ): Promise<MovieEntity[]> => {
-    const getMoviesByGenreUrl = `${serverURL}/api/films?genres_like=${genre}`;
+    const getMoviesByGenreUrl = `${getMembersURL}?genres_like=${genre}`;
     const promise: Promise<MovieEntity[]> = new Promise((resolve, reject) => {
         try {
             Axios.get<MovieEntity[]>(getMembersURL)
