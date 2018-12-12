@@ -1,7 +1,7 @@
 import Axios, { AxiosResponse } from 'axios';
 import { MovieEntity } from './model';
+import { serverURL } from '../common-app';
 
-const serverURL = 'localhost:3000';
 const getMembersURL = `${serverURL}/api/films`;
 
 const getAllMovies = (): Promise<MovieEntity[]> => {
