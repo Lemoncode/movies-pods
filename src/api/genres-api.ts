@@ -1,9 +1,8 @@
 import Axios, { AxiosResponse } from 'axios';
 import { GenreEntity } from "./model";
-import { createGenerateClassName } from '@material-ui/core';
+import {settings } from '../common-app';
 
-const serverURL = 'localhost:3000';
-const getGenresURL = `${serverURL}/api/genres`;
+const getGenresURL = `${settings.serverURL}/api/genres`;
 
 const getAllGenres = () : Promise<GenreEntity[]> => {
     const promise: Promise<GenreEntity[]> = new Promise((resolve, reject) => {
