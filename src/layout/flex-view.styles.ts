@@ -11,9 +11,9 @@ export default (theme: Theme) => createStyles({
     }
   },
   container: {
-    display: 'flex',
-    flexDirection:'row',
-    justifyContent:'center',
+    display: 'grid',
+    gridGap:'10px',
+    gridTemplateColumns:'25% 75%',
     alignItems: 'center',
     width: '100vw',
     height: '100vh',
@@ -21,8 +21,6 @@ export default (theme: Theme) => createStyles({
     padding: '2rem',
     overflow: 'auto',
     backgroundColor: theme.palette.grey['200'],
-    border:'1px solid black'
-    
-    
+  
   }
 });
