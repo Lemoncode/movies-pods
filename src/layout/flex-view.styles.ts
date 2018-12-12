@@ -6,10 +6,14 @@ export default (theme: Theme) => createStyles({
       margin: 0,
       padding: 0,
       width: '100%',
+      
+      
     }
   },
   container: {
     display: 'flex',
+    flexDirection:'row',
+    justifyContent:'center',
     alignItems: 'center',
     width: '100vw',
     height: '100vh',
@@ -17,5 +21,8 @@ export default (theme: Theme) => createStyles({
     padding: '2rem',
     overflow: 'auto',
     backgroundColor: theme.palette.grey['200'],
+    border:'1px solid black'
+    
+    
   }
 });
