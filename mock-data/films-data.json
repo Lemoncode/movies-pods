@@ -407,5 +407,53 @@
     "imdbRating": 6.9,
     "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTYyNzk3MDc2NF5BMl5BanBnXkFtZTgwMDk3OTM1NDM@._V1_SY500_CR0,0,337,500_AL_.jpg"
     }
-    ]
+    ],
+    "genres": [{
+		"id": "1",
+		"desc": "Action"
+	},
+	{
+		"id": "1",
+		"desc": "Adventure"
+	},
+	{
+		"id": "1",
+		"desc": "Sci-Fi"
+	},
+	{
+		"id": "1",
+		"desc": "Animation"
+	},
+	{
+		"id": "1",
+		"desc": "Comedy"
+	},
+	{
+		"id": "1",
+		"desc": "Crime"
+	},
+	{
+		"id": "1",
+		"desc": "Drama"
+	},
+	{
+		"id": "1",
+		"desc": "Romance"
+	},
+	{
+		"id": "1",
+		"desc": "Thriller"
+	},
+	{
+		"id": "1",
+		"desc": "Fantasy"
+	},
+	{
+		"id": "1",
+		"desc": "Biography"
+	},
+	{
+		"id": "1",
+		"desc": "Musical"
+	}]
 }
