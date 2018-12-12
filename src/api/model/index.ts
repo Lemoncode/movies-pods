@@ -1,0 +1,1 @@
+export {MovieEntity} from './movie';
