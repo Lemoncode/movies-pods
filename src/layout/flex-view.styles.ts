@@ -19,5 +19,6 @@ export default (theme: Theme) => createStyles({
     padding: '2rem',
     overflow: 'auto',
     backgroundColor: theme.palette.grey['200'],
+    margin:'1px',
   }
 });
