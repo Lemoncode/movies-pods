@@ -9,7 +9,9 @@ export default (theme: Theme) => createStyles({
     }
   },
   container: {
-    display: 'flex',
+    display: 'grid',
+    gridGap:'10px',
+    gridTemplateColumns:'25% 75%',
     alignItems: 'center',
     width: '100vw',
     height: '100vh',
