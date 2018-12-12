@@ -6,8 +6,6 @@ export default (theme: Theme) => createStyles({
       margin: 0,
       padding: 0,
       width: '100%',
-      
-      
     }
   },
   container: {
@@ -21,6 +19,5 @@ export default (theme: Theme) => createStyles({
     padding: '2rem',
     overflow: 'auto',
     backgroundColor: theme.palette.grey['200'],
-  
   }
 });
