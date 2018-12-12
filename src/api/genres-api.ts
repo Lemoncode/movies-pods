@@ -1,10 +1,10 @@
 import Axios, { AxiosResponse } from 'axios';
 import { GenreEntity } from "./model";
-import {settings } from '../common-app';
+import { settings } from '../common-app';
 
 const getGenresURL = `${settings.serverURL}/api/genres`;
 
-const getAllGenres = () : Promise<GenreEntity[]> => {
+const getAllGenres = (): Promise<GenreEntity[]> => {
     const promise: Promise<GenreEntity[]> = new Promise((resolve, reject) => {
         try {
             Axios.get<GenreEntity[]>(getGenresURL).then(
@@ -21,6 +21,6 @@ const getAllGenres = () : Promise<GenreEntity[]> => {
 const mapGenresToAPIModel = ({ data }: AxiosResponse<GenreEntity[]>) =>
     data.map(genre => genre);
 
-    export const genresAPI = {
-        getAllGenres,
-    }
+export const genresAPI = {
+    getAllGenres,
+}
