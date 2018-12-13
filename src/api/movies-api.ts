@@ -41,4 +41,5 @@ const mapMoviesListAPItoModel = ({ data }: AxiosResponse<MovieEntity[]>) =>
 
 export const moviesAPI = {
     getAllMovies,
+    getAllMoviesByGenre
 }

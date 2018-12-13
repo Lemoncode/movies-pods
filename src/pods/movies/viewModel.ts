@@ -11,7 +11,7 @@ export const createEmptyMovieFilter = (): MovieFilter => ({
 });
 
 export interface MovieEntity {
-    id: number;
+    id: string;
     title: string;
     genre: string;
     age_rating: number;
