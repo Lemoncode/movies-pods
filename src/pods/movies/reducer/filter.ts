@@ -10,8 +10,7 @@ const createDefaultState = (): FilterState => ({
     year: null,
 });
 
-export const filterReducer = (state = createDefaultState(), action) => { 
-    
+export const filterReducer = (state = createDefaultState(), action) => {
     switch (action.type) {
         case actionsEnums.FILTER_FULL_UPDATE:
             return handleUpdateFilters(state, action.payload);
