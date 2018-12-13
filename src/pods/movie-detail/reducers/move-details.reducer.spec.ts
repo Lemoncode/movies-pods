@@ -2,7 +2,7 @@ import { movieReducer, movieDetails } from "./move-details.reducer";
 const deepFreeze = require("deep-freeze");
 
 describe('pods/move-detail/reducers/movie-detail.reducer', () => {
-    it(`should return undefined when passing undefined state 
+    it(`should return default state (not undefined) when passing undefined state 
     and some action type`, () => {
         //Arrange
         const state = undefined;
@@ -12,7 +12,7 @@ describe('pods/move-detail/reducers/movie-detail.reducer', () => {
         const nextState = movieReducer(state, action);
 
         //Assert
-        expect(nextState).toEqual(undefined);
+        expect(nextState).toBeDefined();
    
     });
     it(`should return a new state without mutating the original one,
