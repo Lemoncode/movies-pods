@@ -18,5 +18,10 @@ module.exports = merge(common, {
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
     }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        API_MOVIES_URL: '"http://localhost:3000"' //TODO: Update server URL for Production
+      }
+    }),
   ],
 });

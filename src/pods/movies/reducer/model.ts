@@ -1,5 +1,5 @@
 export interface MovieFilter {
     title: string;
-    genere: string;
+    genre: string;
     year: number;
 }

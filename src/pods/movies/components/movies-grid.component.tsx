@@ -1,12 +1,18 @@
 import * as React from 'react';
-import Table from '@material-ui/core/Table';
+import {TablePagination, Table} from '@material-ui/core/';
 import Paper from '@material-ui/core/Paper';
 import { MovieGridHeadContent } from './grid/movies-grid-head.component';
 import { MovieGridBodyContent } from './grid/movies-grid-body.component';
-import { MovieEntity } from './view-model';
+import { MovieEntity } from '../viewModel';
+import { moviesAPI, Options } from '../../../api/movies-api';
+import { mapFromMovieApiToMovieViewModel, mapFromMovieCollectionVMToMovieViewModel } from '../mapper';
+import { settings } from '../../../common-app';
 
 interface Props {
   movieList: MovieEntity[];
+  totalResults : number;
+  onChangePage : (event: object, page: number) => void;
+  page : number
 }
 
 const MoviesGridComponentInner = (props: Props) => {
@@ -20,17 +26,21 @@ const MoviesGridComponentInner = (props: Props) => {
       }}>
       <Table style=
         {{
-          minWidth: 700,
+          minWidth: 500,
         }}>
         <MovieGridHeadContent />
         <MovieGridBodyContent movieList={props.movieList} />
-      </Table>
+        </Table>
+        <TablePagination style={{ textAlign: "right"}} rowsPerPageOptions={[settings.pageSize]} rowsPerPage={settings.pageSize} page={props.page} count={props.totalResults} onChangePage={props.onChangePage}></TablePagination>
     </Paper>
   );
 }
 
 interface State {
   movieList: MovieEntity[];
+  actualPage: number;
+  totalResults: number;
+
 }
 
 export class MoviesGridComponent extends React.Component<{}, State> {
@@ -39,29 +49,46 @@ export class MoviesGridComponent extends React.Component<{}, State> {
     super(props);
 
     this.state = {
-      movieList: []
+      movieList: [],
+      actualPage : 1,
+      totalResults : 0,
     }
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      const movieList: MovieEntity[] = [
-        { id: 0, title: 'Star wars', genre: 'fantasia', age_rating: 16, year: 1989 },
-        { id: 1, title: 'Black Panther', genre: 'accion', age_rating: 18, year: 2017 },
-        { id: 2, title: 'Señor de los anillos', genre: 'fantasia', age_rating: 18, year: 1989 },
-        { id: 3, title: 'Jackass', genre: 'chusta', age_rating: 18, year: 1989 },
-        { id: 4, title: 'Hobbit', genre: 'fantasia', age_rating: 8, year: 1989 },
-        { id: 5, title: 'La torre oscura', genre: 'fantasia', age_rating: 10, year: 1989 },
-        { id: 6, title: 'Jackass 2', genre: 'chusta', age_rating: 18, year: 1989 },
-        { id: 7, title: 'Grid movie', genre: 'chusta', age_rating: 18, year: 1989 },
-      ];
-      this.setState({ movieList });
-    }, 500);
+    const options : Options = {
+      pageIndex:1,
+      pageSize:settings.pageSize
+    }
+    const movieList = moviesAPI.getAllMovies(options).then(
+      movieList => this.setState( {
+        movieList: mapFromMovieCollectionVMToMovieViewModel(movieList.movies),
+        actualPage : 0,
+        totalResults : movieList.total
+      })
+    );
   }
 
+  onChangePage = (event: object, page: number) => {
+    const options : Options = {
+      pageIndex:this.mapFromTablePageIndexToApiPageIndex(page),
+      pageSize:settings.pageSize
+    }
+    const movieList = moviesAPI.getAllMovies(options).then(
+      movieList => this.setState( {
+        movieList: mapFromMovieCollectionVMToMovieViewModel(movieList.movies),
+        actualPage : page,
+        totalResults : movieList.total
+      })
+    );
+  }
+
+  mapFromTablePageIndexToApiPageIndex = (page:number) : number => {
+    return page+1
+  } 
   render() {
     return (
-      <MoviesGridComponentInner movieList={this.state.movieList} />
+      <MoviesGridComponentInner movieList={this.state.movieList} onChangePage={this.onChangePage} page={this.state.actualPage} totalResults={this.state.totalResults} />
     )
   }
 }

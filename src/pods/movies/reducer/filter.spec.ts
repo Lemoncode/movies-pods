@@ -1,9 +1,9 @@
 import { filterReducer } from "./filter";
-import { MovieFilter } from "../viewModel";
+import { MovieFilter } from "./model";
 const deepFreeze = require("deep-freeze");
 import { actionsEnums } from "../../../common-app/actions";
 
-describe('moveies/reducer/filterReducer tests', () => {
+describe('movies/reducer/filterReducer tests', () => {
     it('should return initial state when passing undefined state and some action type', () => {
         // Arrange
         const state = undefined;
@@ -14,7 +14,7 @@ describe('moveies/reducer/filterReducer tests', () => {
 
         // Assert
         expect(nextState.title).toEqual('');
-        expect(nextState.genere).toEqual('');
+        expect(nextState.genre).toEqual('');
         expect(nextState.year).toBeNull();
     });
 
@@ -22,7 +22,7 @@ describe('moveies/reducer/filterReducer tests', () => {
         // Arrange
         const state: MovieFilter = {
             title: 'test title',
-            genere: 'test genere',
+            genre: 'test genere',
             year: 1900,
         };
 
@@ -34,7 +34,7 @@ describe('moveies/reducer/filterReducer tests', () => {
 
         // Assert
         expect(nextState.title).toEqual('test title');
-        expect(nextState.genere).toEqual('test genere');
+        expect(nextState.genre).toEqual('test genere');
         expect(nextState.year).toEqual(1900);
     });
 
@@ -43,7 +43,7 @@ describe('moveies/reducer/filterReducer tests', () => {
             // Arrange
             const state: MovieFilter = {
                 title: 'test title',
-                genere: 'test genere',
+                genre: 'test genere',
                 year: 1900,
             };
 
@@ -51,7 +51,7 @@ describe('moveies/reducer/filterReducer tests', () => {
                 type: actionsEnums.FILTER_FULL_UPDATE,
                 payload: {
                     title: 'different title',
-                    genere: 'test genere',
+                    genre: 'test genere',
                     year: 1900,
                 } as MovieFilter,
             };
@@ -63,7 +63,7 @@ describe('moveies/reducer/filterReducer tests', () => {
 
             // Assert
             expect(nextState.title).toEqual('different title');
-            expect(nextState.genere).toEqual('test genere');
+            expect(nextState.genre).toEqual('test genere');
             expect(nextState.year).toEqual(1900);
         });
 })  
