@@ -58,7 +58,8 @@ export class MoviesGridComponent extends React.Component<{}, State> {
   componentDidMount() {
     const options : Options = {
       pageIndex:1,
-      pageSize:settings.pageSize
+      pageSize:settings.pageSize,
+      filter:undefined,
     }
     const movieList = moviesAPI.getAllMovies(options).then(
       movieList => this.setState( {
@@ -72,7 +73,8 @@ export class MoviesGridComponent extends React.Component<{}, State> {
   onChangePage = (event: object, page: number) => {
     const options : Options = {
       pageIndex:this.mapFromTablePageIndexToApiPageIndex(page),
-      pageSize:settings.pageSize
+      pageSize:settings.pageSize,
+      filter: undefined,
     }
     const movieList = moviesAPI.getAllMovies(options).then(
       movieList => this.setState( {

@@ -1,8 +1,10 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { actionsEnums } from '../common-app/actions';
 import { moviesRequestActionCompleted } from '../pods/movies/actions';
-import { moviesAPI } from '../api/movies-api'
-import { MovieEntity } from '../api/model';
+import { moviesAPI, Options } from '../api/movies-api'
+import { settings } from '../common-app/config';
+import { MovieFilter } from '../pods/movies/viewModel';
+import { MovieList } from '../api/model/movie';
 
 export function* watchMovieRequest(){
 	yield takeEvery(actionsEnums.MOVIES_REQUEST_STARTED, loadMovies);
@@ -11,7 +13,16 @@ export function* watchMovieRequest(){
 function* loadMovies(action){
 	try
 	{	
-		const movieList = yield call(moviesAPI.getAllMovies)
+		const filter : MovieFilter = action.payload;
+		const options : Options = {
+			pageIndex:1,
+			pageSize:settings.pageSize,
+			filter: {title: filter.title,
+					 genre: filter.genre,
+					 year: filter.year,
+					}
+		  };
+		const movieList = yield call(moviesAPI.getAllMovies, options);
 		yield put(moviesRequestActionCompleted(movieList))
 	}catch(e)
 	{
