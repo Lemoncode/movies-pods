@@ -14,6 +14,6 @@ export interface MovieEntity {
     id: string;
     title: string;
     genre: string;
-    age_rating: number;
+    ageRating : number;
     year: number;
 }

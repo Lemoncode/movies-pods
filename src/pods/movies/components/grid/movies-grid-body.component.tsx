@@ -31,7 +31,7 @@ export const MovieGridBodyContentInner = (props: Props) => {
                             {movie.title}
                         </TableCell>
                         <TableCell align="right">{movie.genre}</TableCell>
-                        <TableCell align="right">{movie.age_rating}</TableCell>
+                        <TableCell align="right">{movie.ageRating}</TableCell>
                         <TableCell align="right">{movie.year}</TableCell>
                     </TableRow>
                 );

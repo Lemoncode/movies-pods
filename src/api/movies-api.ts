@@ -4,9 +4,9 @@ import {settings } from '../common-app';
 
 const getMoviesURL = `${settings.serverURL}/api/films`;
 
-const getAllMovies = (page : number = 1): Promise<MovieEntity[]> => {
+const getAllMovies = (options : Options = createDefaultOpions()): Promise<MovieEntity[]> => {
 
-    const getPaginatedMovies = `${getMoviesURL}?_page=${page}&_limit=${settings.pageSize}`;
+    const getPaginatedMovies = `${getMoviesURL}?_page=${options.pageIndex}&_limit=${options.pageSize}`;
     const promise: Promise<MovieEntity[]> = new Promise((resolve, reject) => {
         try {
             Axios.get<MovieEntity[]>(getPaginatedMovies)
@@ -43,3 +43,15 @@ export const moviesAPI = {
     getAllMovies,
     getAllMoviesByGenre
 }
+
+export interface Options {
+    pageIndex: number,
+    pageSize: number 
+}
+
+export const createDefaultOpions = () : Options => (
+    {
+        pageIndex: 1,
+        pageSize: settings.pageSize
+    }
+);
