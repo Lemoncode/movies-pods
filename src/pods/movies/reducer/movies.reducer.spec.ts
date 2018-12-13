@@ -22,7 +22,7 @@ describe('movies/reducers/moviesReducer tests', () => {
         const state = new Array({ageRating:12,genre:'terror',poster:'poster',synopsis:'synopsis',title:'movie title',year:123},
                                     {ageRating:13,genre:'sci',poster:'poster',synopsis:'synopsis2',title:'movie title2',year:124});
         const action = {
-            type: actionsEnums.MOVIES_REQUEST,
+            type: actionsEnums.MOVIES_REQUEST_COMPLETED,
             payload: {state}
             };
         deepFreeze(state);
