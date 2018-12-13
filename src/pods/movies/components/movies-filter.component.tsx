@@ -14,7 +14,9 @@ import {
 import { MovieFilter } from '../viewModel';
 
 
-interface Props extends WithStyles<typeof styles> {}
+interface Props extends WithStyles<typeof styles> {
+  applyFilter: (filter : MovieFilter) => void,
+ }
 
 interface State {
   movieFilter: MovieFilter;
@@ -26,7 +28,7 @@ class MoviesFilterComponentInner extends React.Component<Props, State> {
   state: State = {
     movieFilter: {
       title: '',
-      genre: '',
+      genre: '-1',
       year: new Date().getFullYear().toString(),
     },
     genres: [],
@@ -48,9 +50,6 @@ class MoviesFilterComponentInner extends React.Component<Props, State> {
       }
     });
 
-    applyFilter = () => {
-
-    }
 
   render() {
     const { classes } = this.props;
@@ -62,7 +61,7 @@ class MoviesFilterComponentInner extends React.Component<Props, State> {
           <MoviesFilterTitleComponent title={movieFilter.title} onUpdateTitle={this.updateField('title')}/>
           <MoviesFilterGenreComponent selectedGenre={movieFilter.genre} onChangeGenre={this.updateField('genre')} genresList={this.state.genres}/>
           <MoviesFilterYearComponent  year={movieFilter.year} onUpdateYear={this.updateField('year')}/>
-          <MoviesFilterApplyButtonComponent movieFilter={movieFilter} onApplyFilter={this.applyFilter}/>
+          <MoviesFilterApplyButtonComponent movieFilter={movieFilter} onApplyFilter={this.props.applyFilter}/>
         </div>
       </>
     )
