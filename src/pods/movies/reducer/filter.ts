@@ -6,7 +6,7 @@ type FilterState = MovieFilter;
 
 const createDefaultState = (): FilterState => ({
     title: '',
-    genere: '',
+    genre: '',
     year: null,
 });
 

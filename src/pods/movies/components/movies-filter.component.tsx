@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { TextField, Select, MenuItem, InputLabel, FormControl, createStyles, WithStyles } from '@material-ui/core';
+import { TextField, MenuItem, createStyles, WithStyles, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import { MovieFilter, GeneresList } from '../viewModel';
-import { render } from 'react-dom';
+import { MovieFilter, GenresList } from '../view-model';
+import { GenreEntity } from '../../../api/model';
+import { genresAPI } from '../../../api/genres-api'
 
 const styles = theme => createStyles({
   container: {
@@ -23,14 +24,22 @@ const styles = theme => createStyles({
   menu: {
     width: 300,
   },
+  button: {
+    margin: theme.spacing.unit,
+    width: 150,
+  },
+  input: {
+    display: 'none',
+  },
 });
 
 interface Props extends WithStyles<typeof styles> {
-  generes: GeneresList;
+  onApplyFilter: (movieFilter: MovieFilter) => void;
 }
 
 interface State {
   movieFilter: MovieFilter;
+  genres: GenreEntity[];
 }
 
 export class MoviesFilterComponentInner extends React.Component<Props, State> {
@@ -38,10 +47,27 @@ export class MoviesFilterComponentInner extends React.Component<Props, State> {
   state: State = {
     movieFilter: {
       title: '',
-      genere: '',
+      genre: '',
       year: 2018,
-    }
+    },
+    genres: [],
   };
+
+  componentDidMount() {
+    genresAPI.getAllGenres().then((genres : GenreEntity[]) => {
+      this.setState({
+        genres
+      });
+    })
+  }
+
+  updateTitle = (title: string) =>
+    this.setState({
+      movieFilter: {
+        ...this.state.movieFilter,
+        title
+      }
+    });
 
   render() {
     const { classes } = this.props;
@@ -56,12 +82,14 @@ export class MoviesFilterComponentInner extends React.Component<Props, State> {
             margin="dense"
             className={classes.textField}
             value={this.state.movieFilter.title}
+            onChange={(event) => this.updateTitle(event.target.value)}
           />
 
           <TextField
             id="standard-select-currency"
             select
-            label="Genere"
+            value='-1'
+            label="Genre"
             className={classes.textField}
             //onChange={this.handleChange('currency')}
             SelectProps={{
@@ -71,10 +99,12 @@ export class MoviesFilterComponentInner extends React.Component<Props, State> {
             }}
             margin="normal"
           >
-            <MenuItem value={10}>All</MenuItem>
-            <MenuItem value={20}>Option 1</MenuItem>
-            <MenuItem value={30}>Option 2</MenuItem>
-            <MenuItem value={40}>Option 3</MenuItem>
+            <MenuItem value={-1}>All</MenuItem>
+            {
+              this.state.genres.map((genre: GenreEntity) =>
+                <MenuItem value={genre.id}>{genre.desc}</MenuItem>
+              )
+            }
             ))}
             </TextField>
 
@@ -84,6 +114,15 @@ export class MoviesFilterComponentInner extends React.Component<Props, State> {
             className={classes.textField}
             value={this.state.movieFilter.year}
           />
+
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            onClick={() => this.props.onApplyFilter(this.state.movieFilter)}
+          >
+            Apply filter
+          </Button>
 
         </div>
       </>
