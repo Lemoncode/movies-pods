@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { WithStyles } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import { MovieFilter } from '../viewModel';
 import { GenreEntity } from '../../../api/model';
 import { genresAPI } from '../../../api/genres-api'
 import { MoviesFilterTitleComponent } from './filters/movies-filter-title.component';
@@ -12,6 +11,7 @@ import { styles } from './filters/filter-styles';
 import {
   createFormValidation, ValidationConstraints, Validators,
 } from 'lc-form-validation';
+import { MovieFilter } from '../viewModel';
 
 
 interface Props extends WithStyles<typeof styles> {
