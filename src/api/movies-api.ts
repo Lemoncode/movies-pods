@@ -18,7 +18,7 @@ const getAllMovies = (options: Options = createDefaultOpions()): Promise<MovieLi
 }
 
 const getMovieById = (id: number): Promise<MovieEntity> => {
-    const getMovieByIDUrl = `${getMoviesURL}/${id}`;
+    const getMovieByIDUrl = `${getMoviesURL}/api/films/${id}`;
     const promise: Promise<MovieEntity> = new Promise((resolve, reject) =>
         Axios.get<MovieEntity>(getMovieByIDUrl).then(response => resolve(mapMovieAPIToModel(response))).catch(error => reject(error)));
     return promise;

@@ -4,5 +4,14 @@
   "restoreMocks": true,
   "setupFiles": [
     "<rootDir>/config/test/polyfills.js"
-  ]
+  ],
+  "moduleNameMapper": {
+    "^api/(.*)$": "/src/api/$1",
+    "^commonApp/(.*)$": "/src/common-app/$1",
+    "^core/(.*)$": "/src/core/$1",
+    "^layout/(.*)$": "/src/layout/$1",
+    "^pods/(.*)$": "/src/pods/$1",
+    "^sagas/(.*)$": "/src/sagas/$1",
+    "^scenes/(.*)$": "/src/scenes/$1"
+  }
 }

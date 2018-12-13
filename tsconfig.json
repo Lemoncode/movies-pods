@@ -11,7 +11,17 @@
     "allowJs": true,  
     "suppressImplicitAnyIndexErrors": true,
     "skipLibCheck": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "./src/",
+        "paths": {
+            "api": ["./src/api/*"],
+            "commonApp": ["./src/common-app/*"],
+            "core": ["./src/core/*"],
+            "layout": ["./src/layout/*"],
+            "pods": ["./src/pods/*"],
+            "sagas": ["./src/sagas/*"],
+            "scenes": ["./src/scenes/*"]
+        }
   },
   "compileOnSave": false,
   "exclude": [
