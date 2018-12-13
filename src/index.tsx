@@ -12,14 +12,9 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
-<<<<<<< HEAD
-      <Route exact={true} path="/" component={SceneMovieList} /> 
-      <Route exact={true} path="/movie-details/:id" component={SceneMovieDetails} />
-      <Route exact={true} path="/movie-cards" component={SceneMovieCards}/>
-=======
         <Route exact={true} path={switchRoutes.moviesList} component={SceneMovieList} />
         <Route exact={true} path={switchRoutes.movieDetail} component={SceneMovieDetails} />
->>>>>>> 6b9b9d8f06ce5c1af61a82785b054db72a68abd0
+        <Route exact={true} path={switchRoutes.movieCards} component={SceneMovieCards} />
       </Switch>
     </ConnectedRouter>
   </Provider>,
