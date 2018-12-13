@@ -5,7 +5,7 @@ import { MovieGridHeadContent } from './grid/movies-grid-head.component';
 import { MovieGridBodyContent } from './grid/movies-grid-body.component';
 import { moviesAPI } from '../../../api/movies-api';
 import { mapFromMovieApiToMovieViewModel, mapFromMovieCollectionVMToMovieViewModel } from '../mapper';
-import { MovieEntity } from './view-model';
+import { MovieEntity } from '../viewModel';
 
 interface Props {
   movieList: MovieEntity[];
