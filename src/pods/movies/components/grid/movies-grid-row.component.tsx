@@ -5,6 +5,7 @@ import TableRow from "@material-ui/core/TableRow/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { switchRoutes, navigationRoutes } from "../../../../common-app/router";
 
 interface Props extends WithStyles<typeof styles> {
     movie: MovieEntity;
@@ -24,7 +25,7 @@ export const MovieGridRowContentInner = (props: Props) => {
     return (
         <TableRow className={classes.movie} key={movie.id}>
             <TableCell component="th" scope="row">
-                <Link to={`/movie-details/:${movie.id}`}>{movie.title}</Link>
+                <Link to={navigationRoutes.movieDetail(movie.id)}>{movie.title}</Link>
             </TableCell>
             <TableCell align="right">{movie.genre}</TableCell>
             <TableCell align="right">{movie.age_rating}</TableCell>
