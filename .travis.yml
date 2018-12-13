@@ -1,0 +1,7 @@
+dist: trusty
+language: node_js
+node_js:
+  - "10.14.2"
+
+script:
+    - npm install && npm test

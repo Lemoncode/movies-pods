@@ -3,7 +3,3 @@ export interface MovieFilter {
     genere: string;
     year: number;
 }
-
-export interface GeneresList {
-    generes: string[];
-}
