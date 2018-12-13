@@ -1,24 +1,18 @@
 import { MovieEntity } from "../../../core/store/model";
-import { actionsEnums } from "../../../common-app/actions";
+import { actionsEnums, BaseAction } from "../../../common-app/actions";
 
-export type moviesState =  MovieEntity[];
+export type movieCollection =  MovieEntity[];
 
-export function createEmptyMovieArray () {
-  const moviesArrary = new Array();
-  moviesArrary.push({ageRating:0, genre: '',poster:'',  synopsis:'',  title:'',  year:0});
-  return moviesArrary;
-}
-
-export const moviesReducer =  (state : moviesState = createEmptyMovieArray(), action) => {
+export const moviesReducer = (state:movieCollection = new Array(), action:BaseAction) => {
     switch (action.type) {
       case actionsEnums.MOVIES_REQUEST_COMPLETED:
-        return handleMoviesRequestCompletedAction(action.payload);
+        return handleMovieRequestCompletedAction(state);
     }
   
     return state;
 };
 
-const handleMoviesRequestCompletedAction = (movies:moviesState):moviesState => {
-    return movies;
-}
+const handleMovieRequestCompletedAction = (state:movieCollection) => (
+  state
+  );
   
