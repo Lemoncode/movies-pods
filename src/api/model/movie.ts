@@ -7,3 +7,8 @@ export interface MovieEntity {
     year : number;
     synopsis : string;
 }
+
+export interface MovieList {
+    movies : MovieEntity[],
+    total: number
+}
