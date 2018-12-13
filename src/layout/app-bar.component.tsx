@@ -23,7 +23,11 @@ interface Props extends RouteComponentProps,WithStyles<typeof styles> {
 class MovieAppBarInner extends React.Component<Props> {
 
     navigateToCards=() =>{
-        this.props.history.push(switchRoutes.movieCards)
+        this.props.history.push(switchRoutes.movieCards);
+    }
+
+    navigateToHome=() =>{
+        this.props.history.push(switchRoutes.moviesList);
     }
 
     render(){
@@ -33,7 +37,7 @@ class MovieAppBarInner extends React.Component<Props> {
       <Toolbar>
         <IconButton className={this.props.classes.menuButton} color="inherit" aria-label="Menu">
            </IconButton>
-        <Typography variant="h6" color="inherit" className={this.props.classes.grow}>
+        <Typography variant="h6" color="inherit" className={this.props.classes.grow} onClick={this.navigateToHome}>
           MyMovies
           </Typography>
         <Button color="inherit" onClick= {this.navigateToCards} >Cards</Button>
