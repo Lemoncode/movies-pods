@@ -4,15 +4,15 @@ import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { history } from './history';
-import { SceneMovieList } from './scenes';
+import { SceneMovieList, SceneMovieDetails } from './scenes';
 import { store } from './store';
-
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
         <Route exact={true} path="/" component={SceneMovieList} />
+        <Route exact={true} path="/movie-details/:id" component={SceneMovieDetails} />
       </Switch>
     </ConnectedRouter>
   </Provider>,
