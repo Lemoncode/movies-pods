@@ -1,8 +1,8 @@
 import Axios, { AxiosResponse } from 'axios';
 import { MovieEntity } from './model';
-import {settings } from '../common-app';
+import { settings } from '../common-app/config';
 
-const getMoviesURL = `${settings.serverURL}/api/films`;
+const getMoviesURL = settings.API_Movies_URL;
 
 
 const getAllMovies = (options: Options = createDefaultOpions()): Promise<MovieEntity[]> => {
