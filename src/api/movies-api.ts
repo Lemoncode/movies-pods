@@ -1,5 +1,6 @@
 import Axios, { AxiosResponse } from 'axios';
 import { MovieEntity } from './model';
+import { settings } from '../common-app/config';
 
 const getMoviesURL = process.env['API_MOVIES_URL'];
 
