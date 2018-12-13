@@ -1,8 +1,7 @@
 import Axios, { AxiosResponse } from 'axios';
 import { MovieEntity } from './model';
-import {settings } from '../common-app';
 
-const getMembersURL = `${settings.serverURL}/api/films`;
+const getMembersURL = process.env['API_MOVIES_URL'];
 
 const getAllMovies = (): Promise<MovieEntity[]> => {
     const promise: Promise<MovieEntity[]> = new Promise((resolve, reject) => {
@@ -39,4 +38,5 @@ const mapMoviesListAPItoModel = ({ data }: AxiosResponse<MovieEntity[]>) =>
 
 export const moviesAPI = {
     getAllMovies,
+    getAllMoviesByGenre,
 }

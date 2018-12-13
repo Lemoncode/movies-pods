@@ -1,8 +1,7 @@
 import Axios, { AxiosResponse } from 'axios';
 import { GenreEntity } from "./model";
-import { settings } from '../common-app';
 
-const getGenresURL = `${settings.serverURL}/api/genres`;
+const getGenresURL = `${process.env['API_MOVIES_URL']}/api/genres`;
 
 const getAllGenres = (): Promise<GenreEntity[]> => {
     const promise: Promise<GenreEntity[]> = new Promise((resolve, reject) => {
