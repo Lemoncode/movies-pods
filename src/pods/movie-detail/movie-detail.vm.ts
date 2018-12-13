@@ -1,3 +1,6 @@
+import { MovieEntity } from "../../api/model";
+
+
 export interface movieDetailsVM {
     id: number;
     title: string;
@@ -7,3 +10,4 @@ export interface movieDetailsVM {
     synopsis: string;
     posterUrl: string;
 }
+

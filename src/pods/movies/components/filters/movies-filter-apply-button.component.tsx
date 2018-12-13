@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { WithStyles, withStyles, Button } from '@material-ui/core';
 import { styles } from './filter-styles';
-import { MovieFilter } from '../view-model';
+import { MovieFilter } from '../../viewModel';
 
 interface Props extends WithStyles<typeof styles> {
     movieFilter: MovieFilter,
