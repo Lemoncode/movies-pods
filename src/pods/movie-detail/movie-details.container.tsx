@@ -5,9 +5,10 @@ import { moviesAPI } from "../../api/movies-api";
 import { MovieEntity } from "../../api/model";
 import { mapFromMovieApiToMovieViewModel } from "./movie-details.mapper";
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { State } from "./reducers";
+import { MovieDetailsRootState } from "./reducers";
 import { movieRequestStartAction } from "./actions";
 import { connect } from "react-redux";
+import { RootState } from "reducer";
 
 
 /*
@@ -34,8 +35,8 @@ class MovieDetailsContainerInner extends React.Component<Props, State> {
 }
 export const MovieDetailsContainer = withRouter<Props>(MovieDetailsContainerInner)
 */
-const mapStateToProps = (state : State) => ({
-    movie: state.movieDetails
+const mapStateToProps = (state : RootState) => ({
+    movie: state.movieDetails.movieDetails
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import { movieReducer } from "./move-details.reducer";
 
-export interface State {
+export interface MovieDetailsRootState {
     movieDetails
 }
 
-export const reducers = combineReducers<State>({
+export const movieDetailsReducers = combineReducers<MovieDetailsRootState>({
 	movieDetails: movieReducer,
   });

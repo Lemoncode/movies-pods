@@ -8,6 +8,6 @@ export const movieRequestStartAction = (id: number): BaseAction<number> => ({
   });
   
   export const movieRequestActionCompleted = (movie:movieDetails): BaseAction<movieDetails> => ({
-	type: actionsEnums.MOVIES_REQUEST_COMPLETED,
+	type: actionsEnums.REQUEST_SINGLE_MOVIE_COMPLETED,
 	payload: movie
   });

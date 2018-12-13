@@ -8,11 +8,11 @@ export type movieDetails = movieDetailsVM;
 export const movieReducer = (state: movieDetails = createDefaultMovie(), action: BaseAction) => {
     switch(action.type){
         case actionsEnums.REQUEST_SINGLE_MOVIE_COMPLETED:
-            return handleRequestSingleMovie(state);
+            return handleRequestSingleMovie(action.payload);
     }
    return state  
 }
 
-const handleRequestSingleMovie = (state: movieDetails) => (
-    state
+const handleRequestSingleMovie = (movieDetails: movieDetails) => (
+    movieDetails
 )
