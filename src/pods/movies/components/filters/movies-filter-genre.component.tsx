@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { TextField, WithStyles, withStyles, MenuItem } from '@material-ui/core';
 import { styles } from './filter-styles';
-import { GenreEntity } from '../view-model';
+import { GenreEntity } from '../../viewModel';
 
 interface Props extends WithStyles<typeof styles> {
     selectedGenre: string,
