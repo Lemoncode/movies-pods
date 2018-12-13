@@ -8,6 +8,6 @@ export const switchRoutes = {
 
 export const navigationRoutes =  {
     moviesList: switchRoutes.moviesList,
-    movieDetail: (id) => `${baseMovieDetail}:${id}`,
+    movieDetail: (id) => `${baseMovieDetail}${id}`,
     moviesCards: switchRoutes.movieCards,
 }
