@@ -71,7 +71,7 @@ export class MoviesGridComponent extends React.Component<{}, State> {
 
   onChangePage = (event: object, page: number) => {
     const options : Options = {
-      pageIndex:page+1,
+      pageIndex:this.mapFromTablePageIndexToApiPageIndex(page),
       pageSize:settings.pageSize
     }
     const movieList = moviesAPI.getAllMovies(options).then(
@@ -83,7 +83,9 @@ export class MoviesGridComponent extends React.Component<{}, State> {
     );
   }
 
-
+  mapFromTablePageIndexToApiPageIndex = (page:number) : number => {
+    return page+1
+  } 
   render() {
     return (
       <MoviesGridComponentInner movieList={this.state.movieList} onChangePage={this.onChangePage} page={this.state.actualPage} totalResults={this.state.totalResults} />

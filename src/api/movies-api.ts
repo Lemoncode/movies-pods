@@ -6,7 +6,7 @@ import { MovieList } from './model/movie';
 const getMoviesURL = settings.API_Movies_URL;
 
 const getAllMovies = (options: Options = createDefaultOpions()): Promise<MovieList> => {
-    const getPaginatedMovies = `${getMoviesURL}?_page=${options.pageIndex}&_limit=${options.pageSize}`;
+    const getPaginatedMovies = `${getMoviesURL}/api/films?_page=${options.pageIndex}&_limit=${options.pageSize}`;
 	const promise: Promise<MovieList> = new Promise((resolve, reject) => 
 		Axios.get<MovieEntity[]>(getPaginatedMovies)
 			.then(response => resolve(mapMoviesListAPItoModel(response)))
@@ -17,7 +17,7 @@ const getAllMovies = (options: Options = createDefaultOpions()): Promise<MovieLi
 }
 
 const getAllMoviesByGenre = (genre : string ): Promise<MovieList> => {
-    const getMoviesByGenreUrl = `${getMoviesURL}?genres_like=${genre}`;
+    const getMoviesByGenreUrl = `${getMoviesURL}/api/films?genres_like=${genre}`;
 	const promise: Promise<MovieList> = new Promise((resolve, reject) => 
 	 Axios.get<MovieEntity[]>(getMoviesByGenreUrl)
 				.then(response => resolve(mapMoviesListAPItoModel(response)))
