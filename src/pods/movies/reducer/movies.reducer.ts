@@ -1,18 +1,30 @@
-import { MovieEntity } from "../../../core/store/model";
+
 import { actionsEnums, BaseAction } from "../../../common-app/actions";
+import { MovieList, MovieEntity } from "./model";
+
 
 export type movieCollection =  MovieEntity[];
 
-export const moviesReducer = (state:movieCollection = [], action:BaseAction) => {
+export interface MoviesState {
+  movies: MovieEntity[],
+  total: number
+}
+export const moviesReducer  = (state:MoviesState = createDefaultMovieList() , action:BaseAction) : MoviesState => {
     switch (action.type) {
       case actionsEnums.MOVIES_REQUEST_COMPLETED:
-        return handleMovieRequestCompletedAction(state);
+        return handleMovieRequestCompletedAction(state, action.payload);
     }
   
     return state;
 };
 
-const handleMovieRequestCompletedAction = (state:movieCollection) => (
-  state
-);
+const createDefaultMovieList = () : MoviesState => ({
+    movies : [],
+    total: 0
+});
+
+const handleMovieRequestCompletedAction = (state:MoviesState, payload: MovieList) : MoviesState => ({
+  movies: payload.movies,
+  total: payload.total
+});
   
