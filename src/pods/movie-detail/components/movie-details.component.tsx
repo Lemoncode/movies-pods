@@ -21,17 +21,11 @@ interface Props extends WithStyles<typeof styles> {
     movie: movieDetailsVM;
 }
 
-const MovieDetailsInner = (props: Props) => {
-
-    return (
-
-        <Card className={props.classes.root}>
-            <CardHeader title={props.movie.title} className={props.classes.cardHeader}/>
-            <MovieDetailsContent movie={props.movie}/>
-            <MovieActions movie={props.movie}/>
-        </Card>
-
-    )
-}
+const MovieDetailsInner = (props: Props) =>
+    <Card className={props.classes.root}>
+        <CardHeader title={props.movie.title} className={props.classes.cardHeader} />
+        <MovieDetailsContent movie={props.movie} />
+        <MovieActions movie={props.movie} />
+    </Card>
 
 export const MovieDetails = withStyles(styles)(MovieDetailsInner);
