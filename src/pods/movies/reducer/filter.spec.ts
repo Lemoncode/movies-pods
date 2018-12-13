@@ -1,5 +1,5 @@
 import { filterReducer } from "./filter";
-import { MovieFilter } from "../view-model";
+import { MovieFilter } from "./model";
 const deepFreeze = require("deep-freeze");
 import { actionsEnums } from "../../../common-app/actions";
 

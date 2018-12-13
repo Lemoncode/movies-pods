@@ -6,6 +6,6 @@ const applyFilter = () => null
 
 export const SceneMovieList: React.StatelessComponent = () => 
  <FlexView>
-    <MoviesFilterContainer onApplyFilter={applyFilter}/>
+    <MoviesFilterContainer/>
     <MoviesGridContainer />
   </FlexView>
