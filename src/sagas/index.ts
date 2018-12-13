@@ -1,8 +1,9 @@
 import { all, fork } from 'redux-saga/effects';
+import {watchMovieRequest} from './movieRequest'
 
-// Register all your watchers
+// Register allwatchFilterGridRequest your watchers
 export const rootSaga = function* root() {
   yield all([
-	//fork(filter),
+	fork(watchMovieRequest),
   ])
 }

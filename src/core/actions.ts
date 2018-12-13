@@ -10,8 +10,3 @@ export const updateSessionInfo = (nickname: string, room: string): BaseAction<Co
 });
 
 
-export const filterGRidRequestAction = (filter:any /* filter*/): BaseAction<CoreModel.SessionInfo> => ({
-	type: coreActionIds.FILTER_GRID_REQUEST_START,
-	payload: filter
-  });
-  
