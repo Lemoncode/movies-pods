@@ -1,7 +1,6 @@
 import { moviesReducer } from './movies.reducer';
 import { MovieEntity } from '../../../api/model';
 import { actionsEnums } from '../../../common-app/actions';
-//const deepFreeze = require('deep-freeze'); ??
 
 describe('movies/reducers/moviesReducer tests', () => {
     it(`should return default movie array when passing undefined state and some action type`, () => {
