@@ -16,16 +16,12 @@ interface Props extends WithStyles<typeof styles> {
 }
 
 const MovieCardInner = (props: Props) => {
-
     return (
-
         <Card className={props.classes.card}>
             <CardHeaderComponent movie={props.movie} />
             <CardContentComponent movie={props.movie}/>
         </Card>
-
     )
 }
-
 
 export const MovieCard = withStyles(styles)(MovieCardInner);
