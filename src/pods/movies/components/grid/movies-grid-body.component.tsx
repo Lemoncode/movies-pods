@@ -3,7 +3,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import * as React from "react";
-import { MovieEntity } from "../view-model";
+import { MovieEntity } from "../../viewModel";
 
 interface Props {
     movieList: MovieEntity[];
