@@ -39,7 +39,7 @@ describe('moveies/reducer/filterReducer tests', () => {
     });
 
     it(`should return updated state without mutate it
-    when passing state, FILTER_REQUEST_COMPLETED action type and login field payload`, () => {
+    when passing state, FILTER_FULL_UPDATE action type and login field payload`, () => {
             // Arrange
             const state: MovieFilter = {
                 title: 'test title',
@@ -48,7 +48,7 @@ describe('moveies/reducer/filterReducer tests', () => {
             };
 
             const action = {
-                type: actionsEnums.FILTER_REQUEST_COMPLETED,
+                type: actionsEnums.FILTER_FULL_UPDATE,
                 payload: {
                     title: 'different title',
                     genere: 'test genere',

@@ -13,7 +13,7 @@ const createDefaultState = (): FilterState => ({
 export const filterReducer = (state = createDefaultState(), action) => { 
     
     switch (action.type) {
-        case actionsEnums.FILTER_REQUEST_COMPLETED:
+        case actionsEnums.FILTER_FULL_UPDATE:
             return handleUpdateFilters(state, action.payload);
     }
     
@@ -21,13 +21,5 @@ export const filterReducer = (state = createDefaultState(), action) => {
 }
 
 const handleUpdateFilters = (state: FilterState, payload: MovieFilter): FilterState => {
-    if (state.genere !== payload.genere){
-        return {...state, genere: payload.genere};
-    }else if(state.title !== payload.title){
-        return {...state, title: payload.title};
-    }else if(state.year !== payload.year){
-        return {...state, year: payload.year};
-    }
-    
-    return state;
+    return payload;
 }
