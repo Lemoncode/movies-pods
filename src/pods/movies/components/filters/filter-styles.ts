@@ -10,7 +10,6 @@ export const styles = theme => createStyles({
     textField: {
       marginLeft: theme.spacing.unit,
       marginRight: theme.spacing.unit,
-      marginBottom: theme.spacing.unit,
       width: 300,
     },
     dense: {
@@ -25,5 +24,9 @@ export const styles = theme => createStyles({
     },
     input: {
       display: 'none',
+    },
+    typography: {
+      marginLeft: theme.spacing.unit,
+      marginRight: theme.spacing.unit,
     },
   });

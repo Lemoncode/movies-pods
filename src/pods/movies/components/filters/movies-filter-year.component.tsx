@@ -1,25 +1,29 @@
 import * as React from 'react'
-import { TextField, WithStyles, withStyles } from '@material-ui/core';
+import { WithStyles, withStyles } from '@material-ui/core';
 import { styles } from './filter-styles';
+import { TextFieldForm } from './textFieldForm';
+import { LoginFormErrors } from '../view-model';
 
 interface Props extends WithStyles<typeof styles> {
-    year: string,
-    onUpdateYear: (year : string) => void,
+    year: string;
+    onUpdateYear: (string, any) => void;
+    loginFormErrors: LoginFormErrors;
 }
-const MoviesFilterYearComponentInner = (props : Props) => {
+const MoviesFilterYearComponentInner = (props: Props) => {
 
-    const { classes } = props;
+    const { classes, loginFormErrors, onUpdateYear } = props;
 
     return (
-        <TextField
-            id="yearId"
+        <TextFieldForm
+            name="year"
             label="Year"
             className={classes.textField}
             value={props.year}
-            onChange={(event) => props.onUpdateYear(event.target.value)}
-          />
-    
-        )
-    }
+            onChange={onUpdateYear}
+            type="text"
+            error={loginFormErrors.year.errorMessage}
+        />
+    );
+}
 
 export const MoviesFilterYearComponent = withStyles(styles)(MoviesFilterYearComponentInner);
