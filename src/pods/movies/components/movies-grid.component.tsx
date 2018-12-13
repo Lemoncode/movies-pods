@@ -1,20 +1,31 @@
 import * as React from 'react';
 import Table from '@material-ui/core/Table';
 import Paper from '@material-ui/core/Paper';
-import { MovieGridHead } from './grid/movies-grid-head.component';
-import { MovieGridBody } from './grid/movies-grid-body.component';
-import { MovieEntity } from './view-model';
+import { MovieGridHeadContent } from './grid/movies-grid-head.component';
+import { MovieGridBodyContent } from './grid/movies-grid-body.component';
+import { MovieEntity } from '../viewModel';
+import { moviesAPI } from '../../../api/movies-api';
+import { mapFromMovieApiToMovieViewModel, mapFromMovieCollectionVMToMovieViewModel } from '../mapper';
 
 interface Props {
   movieList: MovieEntity[];
 }
 
 const MoviesGridComponentInner = (props: Props) => {
+
   return (
-    <Paper >
-      <Table >
-        <MovieGridHead />
-        <MovieGridBody movieList={props.movieList} />
+    <Paper style=
+      {{
+        width: '100%',
+        marginTop: '5%',
+        overflowX: 'auto',
+      }}>
+      <Table style=
+        {{
+          minWidth: 500,
+        }}>
+        <MovieGridHeadContent />
+        <MovieGridBodyContent movieList={props.movieList} />
       </Table>
     </Paper>
   );
@@ -35,14 +46,9 @@ export class MoviesGridComponent extends React.Component<{}, State> {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      const movieList: MovieEntity[] = [
-        { id: 0, title: 'Star wars', genre: 'chusta', age_rating: 16, year: 1989 },
-        { id: 1, title: 'Black Panther', genre: 'chusta', age_rating: 18, year: 2017 },
-        { id: 2, title: 'Star wars', genre: 'chusta', age_rating: 16, year: 1989 },
-      ];
-      this.setState({ movieList });
-    }, 500);
+    const movieList = moviesAPI.getAllMovies().then(
+      movieList => this.setState( {movieList: mapFromMovieCollectionVMToMovieViewModel(movieList)})
+    );
   }
 
   render() {

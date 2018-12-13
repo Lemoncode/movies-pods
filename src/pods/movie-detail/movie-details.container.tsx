@@ -1,5 +1,5 @@
 import * as React from "react";
-import { movieDetailsVM } from "../movie-detail.vm";
+import { movieDetailsVM } from "./movie-detail.vm";
 import { MovieDetails } from "./movie-details.component";
 
 export class MovieDetailsContainer extends React.Component<{}, {}> {

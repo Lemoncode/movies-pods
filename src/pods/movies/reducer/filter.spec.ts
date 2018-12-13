@@ -3,7 +3,7 @@ import { MovieFilter } from "./model";
 const deepFreeze = require("deep-freeze");
 import { actionsEnums } from "../../../common-app/actions";
 
-describe('moveies/reducer/filterReducer tests', () => {
+describe('movies/reducer/filterReducer tests', () => {
     it('should return initial state when passing undefined state and some action type', () => {
         // Arrange
         const state = undefined;
