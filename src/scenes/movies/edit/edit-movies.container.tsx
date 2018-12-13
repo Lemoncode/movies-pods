@@ -1,18 +1,15 @@
 import * as React from 'react';
 import { EditMovie } from './edit-movies.component';
 import { MovieEntity } from './view-model';
+import { withStyles } from '@material-ui/core';
 
 interface State {
     movieEntity: MovieEntity;
 }
 
 interface Props {
-
 }
-
 class EditMovieInner extends React.Component<Props, State> {
-
-
     onChangeField = (id,value) => {
         this.setState({
             movieEntity: {
@@ -21,10 +18,6 @@ class EditMovieInner extends React.Component<Props, State> {
             }
         })
     }
-
-
-
-
     state: State = {
         movieEntity: {
             id: 50,
@@ -46,4 +39,4 @@ class EditMovieInner extends React.Component<Props, State> {
     }
 }
 
-export const EditMovieContainer = (EditMovieInner);
+export const EditMovieContainer =(EditMovieInner);
