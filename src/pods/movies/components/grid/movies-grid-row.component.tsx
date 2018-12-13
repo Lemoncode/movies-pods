@@ -24,7 +24,7 @@ export const MovieGridRowContentInner = (props: Props) => {
 
     return (
         <TableRow className={classes.movie} >
-            <TableCell component="th" scope="row">
+            <TableCell component="td" scope="row">
                 <Link to={navigationRoutes.movieDetail(movie.id)}>{movie.title}</Link>
             </TableCell>
             <TableCell align="right">{movie.genre}</TableCell>

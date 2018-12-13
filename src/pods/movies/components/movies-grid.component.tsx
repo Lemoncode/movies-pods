@@ -8,14 +8,14 @@ import { moviesAPI, Options } from '../../../api/movies-api';
 import { mapFromMovieApiToMovieViewModel, mapFromMovieCollectionVMToMovieViewModel } from '../mapper';
 import { settings } from '../../../common-app';
 
-interface Props {
+interface PropsInner {
   movieList: MovieEntity[];
   totalResults : number;
   onChangePage : (event: object, page: number) => void;
   page : number
 }
 
-const MoviesGridComponentInner = (props: Props) => {
+const MoviesGridComponentInner = (props: PropsInner) => {
 
   return (
     <Paper style=
@@ -31,43 +31,35 @@ const MoviesGridComponentInner = (props: Props) => {
         <MovieGridHeadContent />
         <MovieGridBodyContent movieList={props.movieList} />
         </Table>
-        <TablePagination style={{ textAlign: "right"}} rowsPerPageOptions={[settings.pageSize]} rowsPerPage={settings.pageSize} page={props.page} count={props.totalResults} onChangePage={props.onChangePage}></TablePagination>
+        <TablePagination component="div" style={{ textAlign: "right"}} rowsPerPageOptions={[settings.pageSize]} rowsPerPage={settings.pageSize} page={props.page} count={props.totalResults} onChangePage={props.onChangePage}></TablePagination>
+        
+        
     </Paper>
   );
 }
 
 interface State {
-  movieList: MovieEntity[];
   actualPage: number;
-  totalResults: number;
-
 }
 
-export class MoviesGridComponent extends React.Component<{}, State> {
+interface Props {
+  load : () => void;
+  movieList: MovieEntity[];
+  totalResults: number;
+}
+
+export class MoviesGridComponent extends React.Component<Props, State> {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      movieList: [],
       actualPage : 1,
-      totalResults : 0,
     }
   }
 
   componentDidMount() {
-    const options : Options = {
-      pageIndex:1,
-      pageSize:settings.pageSize,
-      filter:undefined,
-    }
-    const movieList = moviesAPI.getAllMovies(options).then(
-      movieList => this.setState( {
-        movieList: mapFromMovieCollectionVMToMovieViewModel(movieList.movies),
-        actualPage : 0,
-        totalResults : movieList.total
-      })
-    );
+    this.props.load();
   }
 
   onChangePage = (event: object, page: number) => {
@@ -78,9 +70,7 @@ export class MoviesGridComponent extends React.Component<{}, State> {
     }
     const movieList = moviesAPI.getAllMovies(options).then(
       movieList => this.setState( {
-        movieList: mapFromMovieCollectionVMToMovieViewModel(movieList.movies),
         actualPage : page,
-        totalResults : movieList.total
       })
     );
   }
@@ -90,7 +80,7 @@ export class MoviesGridComponent extends React.Component<{}, State> {
   } 
   render() {
     return (
-      <MoviesGridComponentInner movieList={this.state.movieList} onChangePage={this.onChangePage} page={this.state.actualPage} totalResults={this.state.totalResults} />
+      <MoviesGridComponentInner movieList={this.props.movieList} onChangePage={this.onChangePage} page={this.state.actualPage} totalResults={this.props.totalResults} />
     )
   }
 }
