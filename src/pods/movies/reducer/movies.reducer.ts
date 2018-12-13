@@ -5,7 +5,7 @@ export type movieCollection =  MovieEntity[];
 
 export const moviesReducer = (state:movieCollection = new Array(), action:BaseAction) => {
     switch (action.type) {
-      case actionsEnums.MOVIES_REQUEST_COMPLETED:
+      case actionsEnums.MOVIES_REQUEST:
         return handleMovieRequestCompletedAction(state);
     }
   
