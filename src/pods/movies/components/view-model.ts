@@ -5,3 +5,14 @@ export interface MovieEntity {
     age_rating: number;
     year: number;
 }
+
+export interface MovieFilter {
+    title: string;
+    genre: string;
+    year: string;
+}
+
+export interface GenreEntity {
+    id: string;
+    desc: string;
+}
