@@ -2,7 +2,7 @@ import * as React from 'react'
 import { WithStyles, withStyles } from '@material-ui/core';
 import { styles } from './filter-styles';
 import { TextFieldForm } from './textFieldForm';
-import { LoginFormErrors } from '../view-model';
+import { LoginFormErrors } from '../../viewModel';
 
 interface Props extends WithStyles<typeof styles> {
     year: string;
