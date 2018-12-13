@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { WithStyles, createStyles, withStyles } from '@material-ui/core/styles';
-import { Card, CardHeader, CardContent, Typography, CardMedia } from '@material-ui/core';
-import { movieDetailsVM } from '../movie-detail.vm';
-import { MovieDetailsContent } from './movie-details-content.component';
-import { MovieActions } from './movie-details-actions.component';
+import { Card, CardHeader } from '@material-ui/core';
+import { movieDetailsVM } from './movie-detail.vm';
+import { MovieDetailsContent } from './components/movie-details-content.component';
+import { MovieActions } from './components/movie-details-actions.component';
 
 const styles = theme => createStyles({
     root: {

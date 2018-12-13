@@ -17,16 +17,16 @@ interface Props extends WithStyles<typeof styles> {
 }
 
 const MovieActionsInner = (props: Props) => {
-    const {classes} = props;
+    const { classes } = props;
     return (
         <CardActions className={classes.actions} disableActionSpacing>
-            <IconButton aria-label="Add to favorites" onClick={() => {alert(props.movie.title+' Added as a favorite')}}>
+            <IconButton aria-label="Add to favorites" onClick={() => { alert(props.movie.title + ' Added as a favorite') }}>
                 <FavoriteIcon />
             </IconButton>
-            <IconButton aria-label="Share" onClick={() => {alert(props.movie.title+' shared')}}>
+            <IconButton aria-label="Share" onClick={() => { alert(props.movie.title + ' shared') }}>
                 <ShareIcon />
             </IconButton>
-            </CardActions>
+        </CardActions>
 
     )
 }
