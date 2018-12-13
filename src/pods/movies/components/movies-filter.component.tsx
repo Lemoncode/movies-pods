@@ -40,27 +40,11 @@ class MoviesFilterComponentInner extends React.Component<Props, State> {
     })
   }
 
-  updateTitle = (title: string) =>
+  updateField = (fieldId: string) => (value: string) =>
     this.setState({
       movieFilter: {
         ...this.state.movieFilter,
-        title
-      }
-    });
-
-  updateYear = (year: string) =>
-    this.setState({
-      movieFilter: {
-        ...this.state.movieFilter,
-        year
-      }
-    })
-
-    updateGenre = (genre: string) =>
-    this.setState({
-      movieFilter: {
-        ...this.state.movieFilter,
-        genre
+        [fieldId]: value
       }
     });
 
@@ -75,9 +59,9 @@ class MoviesFilterComponentInner extends React.Component<Props, State> {
       <>
         <div className={classes.container}>
 
-          <MoviesFilterTitleComponent title={movieFilter.title} onUpdateTitle={this.updateTitle}/>
-          <MoviesFilterGenreComponent selectedGenre={movieFilter.genre} onChangeGenre={this.updateGenre} genresList={this.state.genres}/>
-          <MoviesFilterYearComponent  year={movieFilter.year} onUpdateYear={this.updateYear}/>
+          <MoviesFilterTitleComponent title={movieFilter.title} onUpdateTitle={this.updateField('title')}/>
+          <MoviesFilterGenreComponent selectedGenre={movieFilter.genre} onChangeGenre={this.updateField('genre')} genresList={this.state.genres}/>
+          <MoviesFilterYearComponent  year={movieFilter.year} onUpdateYear={this.updateField('year')}/>
           <MoviesFilterApplyButtonComponent movieFilter={movieFilter} onApplyFilter={this.applyFilter}/>
         </div>
       </>
