@@ -4,7 +4,7 @@ import { actionsEnums } from "../../../common-app/actions";
 import { MovieEntity } from "../components/view-model";
 
 export const moviesRequestAction = (filter?:MovieFilter): BaseAction<MovieFilter> => ({
-	type: actionsEnums.MOVIES_REQUEST,
+	type: actionsEnums.MOVIES_REQUEST_STARTED,
 	payload: filter
   });
   

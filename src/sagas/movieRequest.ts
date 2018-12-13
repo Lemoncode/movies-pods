@@ -5,13 +5,17 @@ import { moviesAPI } from '../api/movies-api'
 import { MovieEntity } from '../api/model';
 
 export function* watchMovieRequest(){
-	yield takeEvery(actionsEnums.MOVIES_REQUEST, loadMovies);
+	yield takeEvery(actionsEnums.MOVIES_REQUEST_STARTED, loadMovies);
 }
 
 function* loadMovies(action){
-	const movieList = yield moviesAPI.getAllMovies()
-	if(movieList)
-	{
+	try
+	{	
+		const movieList = yield call(moviesAPI.getAllMovies)
 		yield put(moviesRequestActionCompleted(movieList))
+	}catch(e)
+	{
+		//TODO: add error handling
+		console.log("exc:",e);
 	}
 }
