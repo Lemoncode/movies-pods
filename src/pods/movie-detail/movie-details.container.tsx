@@ -6,6 +6,8 @@ import { MovieEntity } from "../../api/model";
 import { mapFromMovieApiToMovieViewModel } from "./movie-details.mapper";
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { getMovieId } from "./movie-details.container.business";
+import ErrorBoundary from "react-error-boundary";
+import { ErrorBoundaryComponent } from "../../common-app/components/error-boundary.component";
 
 interface Props extends RouteComponentProps {
 }
@@ -20,7 +22,7 @@ class MovieDetailsContainerInner extends React.Component<Props, State> {
         const movieId = getMovieId(this.props.location.pathname);
         moviesAPI.getMovieById(movieId).then((movie: MovieEntity) => {
             this.setState({ movie: mapFromMovieApiToMovieViewModel(movie) });
-        }).catch();
+        });
     }
     render() {
         return (
