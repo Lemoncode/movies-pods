@@ -20,6 +20,11 @@ module.exports = merge.strategy({ entry: 'prepend' })(common, {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new webpack.DefinePlugin({
+      "process.env": {
+        API_MOVIES_URL: '"http://localhost:3000"'
+      }
+    }),
   ],
 });
