@@ -3,12 +3,14 @@ import { WithStyles, createStyles, withStyles } from '@material-ui/core/styles';
 import { Card, CardHeader, CardContent, Typography, CardMedia } from '@material-ui/core';
 import { movieDetailsVM } from '../movie-detail.vm';
 import { MovieDetailsContent } from './movie-details-content.component';
+import { MovieActions } from './movie-details-actions.component';
 
 const styles = theme => createStyles({
     root: {
         paddingTop: theme.spacing.unit * 2,
         paddingBottom: theme.spacing.unit * 2,
-        width: '100%'
+        width: '100%',
+        overflow: 'auto'
     },
     cardHeader: {
         fontWeight: 'bold'
@@ -26,20 +28,10 @@ const MovieDetailsInner = (props: Props) => {
         <Card className={props.classes.root}>
             <CardHeader title={props.movie.title} className={props.classes.cardHeader}/>
             <MovieDetailsContent movie={props.movie}/>
+            <MovieActions movie={props.movie}/>
         </Card>
 
     )
 }
 
 export const MovieDetails = withStyles(styles)(MovieDetailsInner);
-
-
-/**
- * <Typography variant={'subtitle1'} style={{width:'3rem'}}>
-                        <span className={props.classes.detailTitle}>Genre: </span>{props.movie.genre}
-                    </Typography>
-
-                    <Typography paragraph={true}  style={{width:'3rem'}}>
-                        {props.movie.synopsis}
-                    </Typography>
- */

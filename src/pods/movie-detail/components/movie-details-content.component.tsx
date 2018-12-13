@@ -8,7 +8,6 @@ const styles = theme => createStyles({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        padding: '0rem 0rem 3rem 0',
         boxSizing:"border-box"
     },
     detailTitle: {
@@ -26,7 +25,7 @@ const styles = theme => createStyles({
     movieBody: {
         textAlign: 'justify',
         flexBasis: '80%',
-        padding: '2rem 3rem',
+        padding: '1rem 3rem',
         flexGrow: 1,
         boxSizing:"border-box",
     }
@@ -58,32 +57,3 @@ const MovieDetailsContentInner = (props: Props) => {
 }
 
 export const MovieDetailsContent = withStyles(styles)(MovieDetailsContentInner);
-
-/*
-
-<CardContent>
-    <div className={props.classes.root}>
-        <CardMedia
-            className={props.classes.media}
-            image={props.movie.posterUrl}
-            title={props.movie.title}
-        />
-
-        <div className={props.classes.movieBody}>
-            <div>
-                <span className={props.classes.detailTitle}>Genre: </span>{props.movie.genre}
-            </div>
-            <Typography variant={'h6'}>Synopsis </Typography>
-            <Typography paragraph={true}>
-                <span>{props.movie.synopsis}</span>
-            </Typography>
-        </div>
-    </div>
-</CardContent>
-<CardMedia
-                    className={props.classes.media}
-                    image={props.movie.posterUrl}
-                    title={props.movie.title}
-                />
-                
-    */
