@@ -152,7 +152,7 @@ describe('pods/movie-details.mapper', () => {
         expect(returnedMovie.id).toEqual(1);
         expect(returnedMovie.genre).toEqual('drama');
         expect(returnedMovie.ageRating).toEqual(7);
-        expect(returnedMovie.posterUrl).toEqual('poster');
+        expect(returnedMovie.posterUrl).toEqual(null);
         expect(returnedMovie.synopsis).toEqual('synopsis');
         expect(returnedMovie.title).toEqual('title');
         expect(returnedMovie.year).toEqual(2000);
