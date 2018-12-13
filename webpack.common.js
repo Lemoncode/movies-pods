@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 const srcPath = path.resolve(__dirname, 'src');
@@ -57,6 +58,10 @@ module.exports = {
       hash: true,
       chunks: ['manifest', 'vendor', 'app'],
       chunksSortMode: 'manual',
-    })
+    }),
+    new CopyWebpackPlugin([
+      // relative path is from src
+      { from: './static/favicon.ico' }, // <- your path to favicon
+    ])
   ],
 };
