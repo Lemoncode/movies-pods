@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import { State } from './reducer/filter';
 import { MoviesFilterComponent } from './components/movies-filter.component';
 import { moviesRequestAction } from './actions';
 import { MovieFilter } from './viewModel';
+import { State } from '../../core/store/model';
 
 
 const mapStateToProps = (state : State) => ({
+  
 })
 
 const mapDispatchToProps = (dispatch) => ({

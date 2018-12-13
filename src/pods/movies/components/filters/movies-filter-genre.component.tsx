@@ -27,10 +27,10 @@ const MoviesFilterGenreComponentInner = (props : Props) => {
             }}
             margin="normal"
           >
-            <MenuItem value={-1}>All</MenuItem>
+            <MenuItem value='All' key='-1'>All</MenuItem>
             {
               props.genresList.map((genre: GenreEntity) =>
-                <MenuItem key={genre.id} value={genre.id}>{genre.desc}</MenuItem>
+                <MenuItem key={genre.id} value={genre.desc}>{genre.desc}</MenuItem>
               )
             }
             ))}
