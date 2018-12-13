@@ -39,13 +39,21 @@ export const moviesAPI = {
 }
 
 export interface Options {
-    pageIndex: number,
-    pageSize: number 
+    pageIndex: number;
+    pageSize: number;
+    filter: MovieFilter;
+}
+
+export interface MovieFilter {
+    title: string;
+    genre: string;
+    year: string;
 }
 
 export const createDefaultOpions = () : Options => (
     {
         pageIndex: 1,
-        pageSize: settings.pageSize
+        pageSize: settings.pageSize,
+        filter: undefined,
     }
 );
