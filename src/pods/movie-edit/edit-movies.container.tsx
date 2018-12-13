@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { EditMovie } from './edit-movies.component';
+import { EditMovie } from './components/edit-movies.component';
 import { MovieEntity } from './view-model';
 import { withStyles } from '@material-ui/core';
-import { GenreEntity } from '../../../api/model';
+import { GenreEntity } from '../../api/model';
 
 interface State {
     movieEntity: MovieEntity;

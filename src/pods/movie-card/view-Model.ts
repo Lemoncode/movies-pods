@@ -1,7 +1,4 @@
-import { MovieEntity } from "../../api/model";
-
-
-export interface movieDetailsVM {
+export interface MovieEntity {
     id: number;
     title: string;
     genre: string;

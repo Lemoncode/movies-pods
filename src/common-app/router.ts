@@ -5,11 +5,13 @@ const baseMovieEdit = '/movies/edit/';
 export const switchRoutes = {
     moviesList: '/',
     movieDetail: `${baseMovieDetail}:id`,
-    movieEdit:`${baseMovieEdit}:id`,
+    movieCards: '/movie-cards/',
+    movieEdit: `${baseMovieEdit}:id`,
 }
 
 export const navigationRoutes =  {
     moviesList: switchRoutes.moviesList,
-    movieDetail: (id) => `${baseMovieDetail}:${id}`,
-    movieEdit: (id)=>`${baseMovieEdit}:${id}`,
+    movieDetail: (id) => `${baseMovieDetail}${id}`,
+    moviesCards: switchRoutes.movieCards,
+    movieEdit: (id) => `${baseMovieEdit}${id}`,
 }

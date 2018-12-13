@@ -3,8 +3,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { MovieEntity } from "./view-model";
-import {MoviesFilterGenreComponent} from '../../../pods/movies/components/filters/movies-filter-genre.component';
+import { MovieEntity } from "../view-model";
+import {MoviesFilterGenreComponent} from '../../movies/components/filters/movies-filter-genre.component';
 import { GenreEntity } from '../../../api/model';
 const styles = theme => ({
   textField: {
