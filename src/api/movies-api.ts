@@ -1,11 +1,9 @@
 import Axios, { AxiosResponse } from 'axios';
 import { MovieEntity } from './model';
-
 import {settings } from '../common-app';
 import { MovieList } from './model/movie';
 
-const getMoviesURL = `${settings.serverURL}/api/films`;
-
+const getMoviesURL = settings.API_Movies_URL;
 
 const getAllMovies = (options: Options = createDefaultOpions()): Promise<MovieList> => {
     const getPaginatedMovies = `${getMoviesURL}?_page=${options.pageIndex}&_limit=${options.pageSize}`;
@@ -17,7 +15,6 @@ const getAllMovies = (options: Options = createDefaultOpions()): Promise<MovieLi
 
     return promise;
 }
-
 
 const getAllMoviesByGenre = (genre : string ): Promise<MovieList> => {
     const getMoviesByGenreUrl = `${getMoviesURL}?genres_like=${genre}`;
