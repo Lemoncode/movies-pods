@@ -4,17 +4,29 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import * as React from "react";
 import { MovieEntity } from "../../viewModel";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
+import createStyles from "@material-ui/core/styles/createStyles";
 
-interface Props {
+
+interface Props extends WithStyles<typeof styles> {
     movieList: MovieEntity[];
 }
 
-export const MovieGridBody = (props: Props) => {
+const styles = () => createStyles({
+    movie: {
+        '&:nth-of-type(odd)': {
+          backgroundColor: '#fafafa',
+        },
+      },
+});
+
+export const MovieGridBodyContentInner = (props: Props) => {
+    const { classes,movieList } = props;
     return (
         <TableBody>
-            {props.movieList.map(movie => {
+            {movieList.map(movie => {
                 return (
-                    <TableRow key={movie.id}>
+                    <TableRow className={classes.movie} key={movie.id}>
                         <TableCell component="th" scope="row">
                             {movie.title}
                         </TableCell>
@@ -27,3 +39,5 @@ export const MovieGridBody = (props: Props) => {
         </TableBody>
     );
 }
+
+export const MovieGridBodyContent = withStyles(styles)(MovieGridBodyContentInner)
