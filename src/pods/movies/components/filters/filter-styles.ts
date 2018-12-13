@@ -16,9 +16,7 @@ export const styles = theme => createStyles({
     dense: {
       marginTop: 19,
     },
-    menu: {
-      width: 300,
-    },
+ 
     button: {
       margin: theme.spacing.unit,
       width: 150,

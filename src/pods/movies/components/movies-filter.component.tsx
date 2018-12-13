@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { GenreEntity } from '../../../api/model';
 import { genresAPI } from '../../../api/genres-api'
 import { MoviesFilterTitleComponent } from './filters/movies-filter-title.component';
-import { MoviesFilterGenreComponent } from './filters/movies-filter-genre.component';
+import { MoviesFilterGenreComponent } from '../../../common-app/components/filters/movies-filter-genre.component';
 import { MoviesFilterYearComponent } from './filters/movies-filter-year.component';
 import { MoviesFilterApplyButtonComponent } from './filters/movies-filter-apply-button.component';
 import { styles } from './filters/filter-styles';
