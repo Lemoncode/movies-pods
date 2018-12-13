@@ -6,6 +6,15 @@ const srcPath = path.resolve(__dirname, 'src');
 module.exports = {
   context: srcPath,
   resolve: {
+    alias: {
+      api: path.resolve(__dirname, './src/api/'),
+      commonApp: path.resolve(__dirname, './src/common-app/'),
+      core: path.resolve(__dirname, './src/core/'),
+      layout: path.resolve(__dirname, './src/layout/'),
+      pods: path.resolve(__dirname, './src/pods/'),
+      sagas: path.resolve(__dirname, './src/sagas/'),
+      scenes: path.resolve(__dirname, './src/scenes/'),
+    },
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     mainFields: ['browser', 'module', 'main'],
   },
