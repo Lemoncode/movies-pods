@@ -16,6 +16,6 @@ describe('pods/movie-details.business', () => {
         //Act
         const movieId = getMovieId(url)
         //Assert
-        expect(movieId).toEqual(NaN);
+        expect(movieId).toEqual(0);
     });
 });

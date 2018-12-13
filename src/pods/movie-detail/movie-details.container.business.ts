@@ -1,4 +1,5 @@
 export const getMovieId = (pathname): number => {
     const param = pathname.split("/");
-    return parseInt(param[param.length - 1]);
+    const movieId = parseInt(param[param.length - 1]);
+    return (!isNaN(movieId)) ? movieId : 0;
 }
