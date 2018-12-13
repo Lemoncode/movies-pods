@@ -28,7 +28,7 @@ class MoviesFilterComponentInner extends React.Component<Props, State> {
   state: State = {
     movieFilter: {
       title: '',
-      genre: '-1',
+      genre: 'All',
       year: new Date().getFullYear().toString(),
     },
     genres: [],
