@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "mock-server": "json-server --routes ./config/routes.json --watch mock-data/films-data.json",
-    "start": "npm run start:dev",
+    "start": "concurrently \"npm run start:dev\" \"npm run mock-server\"",
     "start:dev": "nodemon --watch webpack.*.js --exec \"webpack-dev-server --config webpack.dev.js\"",
     "start:prod": "nodemon --watch webpack.*.js --exec \"webpack-dev-server --config webpack.prod.js\"",
-    "start:dev:mock": "concurrently \"npm start\" \"npm run mock-server\"",
     "build": "npm run build:dev",
     "build:dev": "rimraf dist && webpack --config webpack.dev.js",
     "build:prod": "rimraf dist && webpack -p --config webpack.prod.js",
