@@ -8,3 +8,5 @@ export const updateSessionInfo = (nickname: string, room: string): BaseAction<Co
   type: coreActionIds.UPDATE_SESSION_INFO,
   payload: { nickname, room }
 });
+
+

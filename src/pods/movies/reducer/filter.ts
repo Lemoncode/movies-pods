@@ -1,6 +1,10 @@
 import { actionsEnums } from "../../../common-app/actions";
 import {MovieFilter} from './model';
+import { combineReducers } from "redux";
 
+export interface State {
+	filterState
+  };
 
 type FilterState = MovieFilter;
 
@@ -19,4 +23,13 @@ export const filterReducer = (state = createDefaultState(), action) => {
     return state;
 }
 
-const handleUpdateFilters = (state: FilterState, payload: MovieFilter): FilterState => payload;
+const handleUpdateFilters = (state: FilterState, payload: MovieFilter): FilterState => {
+    return payload;
+}
+
+export const reducers = combineReducers<State>({
+	filterState: filterReducer,
+  });
+
+
+  
