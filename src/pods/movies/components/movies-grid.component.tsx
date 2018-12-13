@@ -3,7 +3,9 @@ import Table from '@material-ui/core/Table';
 import Paper from '@material-ui/core/Paper';
 import { MovieGridHeadContent } from './grid/movies-grid-head.component';
 import { MovieGridBodyContent } from './grid/movies-grid-body.component';
-import { MovieEntity } from './view-model';
+import { MovieEntity } from '../viewModel';
+import { moviesAPI } from '../../../api/movies-api';
+import { mapFromMovieApiToMovieViewModel, mapFromMovieCollectionVMToMovieViewModel } from '../mapper';
 
 interface Props {
   movieList: MovieEntity[];
@@ -20,7 +22,7 @@ const MoviesGridComponentInner = (props: Props) => {
       }}>
       <Table style=
         {{
-          minWidth: 700,
+          minWidth: 500,
         }}>
         <MovieGridHeadContent />
         <MovieGridBodyContent movieList={props.movieList} />
@@ -44,19 +46,9 @@ export class MoviesGridComponent extends React.Component<{}, State> {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      const movieList: MovieEntity[] = [
-        { id: 0, title: 'Star wars', genre: 'fantasia', age_rating: 16, year: 1989 },
-        { id: 1, title: 'Black Panther', genre: 'accion', age_rating: 18, year: 2017 },
-        { id: 2, title: 'Señor de los anillos', genre: 'fantasia', age_rating: 18, year: 1989 },
-        { id: 3, title: 'Jackass', genre: 'chusta', age_rating: 18, year: 1989 },
-        { id: 4, title: 'Hobbit', genre: 'fantasia', age_rating: 8, year: 1989 },
-        { id: 5, title: 'La torre oscura', genre: 'fantasia', age_rating: 10, year: 1989 },
-        { id: 6, title: 'Jackass 2', genre: 'chusta', age_rating: 18, year: 1989 },
-        { id: 7, title: 'Grid movie', genre: 'chusta', age_rating: 18, year: 1989 },
-      ];
-      this.setState({ movieList });
-    }, 500);
+    const movieList = moviesAPI.getAllMovies().then(
+      movieList => this.setState( {movieList: mapFromMovieCollectionVMToMovieViewModel(movieList)})
+    );
   }
 
   render() {
