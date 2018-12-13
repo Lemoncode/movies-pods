@@ -16,7 +16,7 @@ const MoviesFilterGenreComponentInner = (props : Props) => {
         <TextField
             id="standard-select-currency"
             select
-            value='-1'
+            value={props.selectedGenre}
             label="Genre"
             className={classes.textField}
             onChange={(event) => props.onChangeGenre(event.target.value)}
