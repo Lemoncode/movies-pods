@@ -19,6 +19,4 @@ export const filterReducer = (state = createDefaultState(), action) => {
     return state;
 }
 
-const handleUpdateFilters = (state: FilterState, payload: MovieFilter): FilterState => {
-    return payload;
-}
+const handleUpdateFilters = (state: FilterState, payload: MovieFilter): FilterState => payload;
