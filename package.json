@@ -33,6 +33,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^4.6.0",
     "deep-freeze": "0.0.1",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
