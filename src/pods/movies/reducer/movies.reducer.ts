@@ -3,18 +3,9 @@ import { actionsEnums } from "../../../common-app/actions";
 
 export type movieState =  MovieEntity[];
 
-export const createEmptyMovieEntity = (): MovieEntity => ({
-  ageRating: 0,
-  genre: '',
-  poster:'',
-  synopsis:'',
-  title:'',
-  year:0,
-});
-
 export function createEmptyMovieArray () {
   const moviesArrary = new Array();
-  moviesArrary.push(createEmptyMovieEntity());
+  moviesArrary.push({ageRating:0, genre: '',poster:'',  synopsis:'',  title:'',  year:0});
   return moviesArrary;
 }
 
