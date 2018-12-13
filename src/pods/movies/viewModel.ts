@@ -1,12 +1,12 @@
 export interface MovieFilter {
     title: string;
-    genere: string;
-    year: number;
+    genre: string;
+    year: string;
 }
 
 export const createEmptyMovieFilter = (): MovieFilter => ({
     title: '',
-    genere: '',
+    genre: '',
     year: null,
 });
 

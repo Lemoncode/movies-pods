@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { WithStyles } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import { MovieFilter } from './view-model';
+import { MovieFilter } from '../viewModel';
 import { GenreEntity } from '../../../api/model';
 import { genresAPI } from '../../../api/genres-api'
 import { MoviesFilterTitleComponent } from './filters/movies-filter-title.component';
@@ -14,7 +14,9 @@ import {
 } from 'lc-form-validation';
 
 
-interface Props extends WithStyles<typeof styles> {}
+interface Props extends WithStyles<typeof styles> {
+  applyFilter: (filter : MovieFilter) => void,
+ }
 
 interface State {
   movieFilter: MovieFilter;
@@ -26,7 +28,7 @@ class MoviesFilterComponentInner extends React.Component<Props, State> {
   state: State = {
     movieFilter: {
       title: '',
-      genre: '',
+      genre: '-1',
       year: new Date().getFullYear().toString(),
     },
     genres: [],
@@ -48,9 +50,6 @@ class MoviesFilterComponentInner extends React.Component<Props, State> {
       }
     });
 
-    applyFilter = () => {
-
-    }
 
   render() {
     const { classes } = this.props;
@@ -62,7 +61,7 @@ class MoviesFilterComponentInner extends React.Component<Props, State> {
           <MoviesFilterTitleComponent title={movieFilter.title} onUpdateTitle={this.updateField('title')}/>
           <MoviesFilterGenreComponent selectedGenre={movieFilter.genre} onChangeGenre={this.updateField('genre')} genresList={this.state.genres}/>
           <MoviesFilterYearComponent  year={movieFilter.year} onUpdateYear={this.updateField('year')}/>
-          <MoviesFilterApplyButtonComponent movieFilter={movieFilter} onApplyFilter={this.applyFilter}/>
+          <MoviesFilterApplyButtonComponent movieFilter={movieFilter} onApplyFilter={this.props.applyFilter}/>
         </div>
       </>
     )
