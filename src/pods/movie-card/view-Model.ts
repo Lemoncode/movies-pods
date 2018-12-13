@@ -2,6 +2,9 @@ export interface MovieEntity {
     id: number;
     title: string;
     genre: string;
-    age_rating: number;
+    ageRating: number;
     year: number;
+    synopsis: string;
+    posterUrl: string;
 }
+

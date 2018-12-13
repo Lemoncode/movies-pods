@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { createStyles, Card, WithStyles, CardHeader, withStyles } from '@material-ui/core';
 import { MovieEntity } from "../view-model";
+import { CardHeaderComponent } from './movie-card-header-component';
+import { CardContentComponent } from './movie-card-content-component';
 
 const styles = theme => createStyles({
     card: {
@@ -18,7 +20,8 @@ const MovieCardInner = (props: Props) => {
     return (
 
         <Card className={props.classes.card}>
-            // add card header
+            <CardHeaderComponent movie={props.movie} />
+            <CardContentComponent movie={props.movie}/>
         </Card>
 
     )
