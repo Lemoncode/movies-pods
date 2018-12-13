@@ -27,12 +27,25 @@ const getAllMoviesByGenre = (genre : string ): Promise<MovieEntity[]> => {
     return promise;
 }
 
+
+const getMovieById = (id: number): Promise<MovieEntity> => {
+	const getMovieByIDUrl = `${getMoviesURL}/${id}`;
+	const promise: Promise<MovieEntity> = new Promise((resolve,reject) => 
+		Axios.get<MovieEntity>(getMovieByIDUrl).then(response => resolve(mapMovieAPIToModel(response))).catch(error => reject(error)));
+		return promise;
+}
+
 const mapMoviesListAPItoModel = ({ data }: AxiosResponse<MovieEntity[]>) =>
     data.map(movie => movie);
 
+
+const mapMovieAPIToModel = ({data}: AxiosResponse<MovieEntity>) : MovieEntity => 
+	data
+
 export const moviesAPI = {
     getAllMovies,
-    getAllMoviesByGenre
+	getAllMoviesByGenre,
+	getMovieById
 }
 
 export interface Options {
