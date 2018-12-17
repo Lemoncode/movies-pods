@@ -4,6 +4,7 @@ import { Card, CardHeader } from '@material-ui/core';
 import { movieDetailsVM } from './movie-detail.vm';
 import { MovieDetailsContent } from './components/movie-details-content.component';
 import { MovieActions } from './components/movie-details-actions.component';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 const styles = theme => createStyles({
     root: {
@@ -17,15 +18,33 @@ const styles = theme => createStyles({
     }
 });
 
-interface Props extends WithStyles<typeof styles> {
-    movie: movieDetailsVM;
+interface Props extends RouteComponentProps, WithStyles<typeof styles> {
+    movie : movieDetailsVM;
+    onload : (id: number) => void;
 }
 
-const MovieDetailsInner = (props: Props) =>
-    <Card className={props.classes.root}>
-        <CardHeader title={props.movie.title} className={props.classes.cardHeader} />
-        <MovieDetailsContent movie={props.movie} />
-        <MovieActions movie={props.movie} />
-    </Card>
+class MovieDetailsInner extends React.PureComponent<Props, {}> {
+    getMovieId = (pathname): number => {
+        const param = pathname.split("/");
+        return parseInt(param[param.length-1]);
+    }
+    
+    componentDidMount() {
+        this.props.onload(this.getMovieId(this.props.location.pathname));
+    }
 
-export const MovieDetails = withStyles(styles)(MovieDetailsInner);
+    render() {
+        const {classes, movie} = this.props;
+        return(
+            <Card className={classes.root}>
+                <CardHeader title={movie.title} className={classes.cardHeader} />
+                <MovieDetailsContent movie={movie} />
+                <MovieActions movie={movie} />
+            </Card>
+        )
+    
+    }
+}
+    
+
+export const MovieDetails = withStyles(styles)(withRouter<Props>(MovieDetailsInner));
