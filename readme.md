@@ -14,6 +14,22 @@ What you will find in this application:
   - How to setup Jest environment, plus implement unit tests on reducers, actions and business code.
   - How to setup a simple react-router based navigation.
 
+Special thanks to the team mates that have contributed to this project:
+
+- Joan Cruz.
+- Oscar García Masía.
+- Oscar Villanova.
+- [Alex](https://github.com/AlexSan76)
+- Joan Valls
+- Carlos Hidalgo.
+- Berta.
+- Oscar Castel.
+- Ana Martín.
+- Cristian.
+
+
+
+
 # About Lemoncode
 
 We are a team of long-term experienced freelance developers, established as a group in 2010.
