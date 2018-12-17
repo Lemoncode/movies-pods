@@ -16,18 +16,16 @@ What you will find in this application:
 
 Special thanks to the team mates that have contributed to this project:
 
-- Joan Cruz.
-- Oscar García Masía.
-- Oscar Villanova.
+- [Joan Cruz](https://github.com/2085020).
+- [Oscar García Masía](https://github.com/oscargm).
+- [Oscar Villanova](https://github.com/ovillanova).
 - [Alex](https://github.com/AlexSan76)
-- Joan Valls
-- Carlos Hidalgo.
-- Berta.
-- Oscar Castel.
-- Ana Martín.
-- Cristian.
-
-
+- [Joan Valls](https://github.com/joanvm).
+- [Carlos Hidalgo](https://github.com/chalsy87).
+- [Berta](https://github.com/berollss).
+- [Oscar Castel](https://github.com/castelgo).
+- [Ana Martín](https://github.com/martinpaa).
+- [Cristian](https://github.com/CristianJM89).
 
 
 # About Lemoncode
